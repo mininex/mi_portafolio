@@ -1,0 +1,300 @@
+/* Nuevo estilo para el cuerpo con fondo animado */
+body {
+    /* Define un degradado que abarca todo el cuerpo */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%; /* Permite que el degradado sea más grande que la pantalla */
+    animation: gradientAnimation 15s ease infinite; /* Aplica una animación */
+    height: 100vh; /* Asegura que el fondo ocupe toda la altura */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Para que el texto sea visible en el fondo */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Inicio de la animación */
+    }
+    50% {
+        background-position: 100% 50%; /* Mitad de la animación */
+    }
+    100% {
+        background-position: 0% 50%; /* Regresa al inicio */
+    }
+}
+
+header header {
+    display: flex; /* Convierte el encabezado en un contenedor flexible */
+    justify-content: space-between; /* Distribuye los elementos (nombre y nav) a los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nombre-estilo {
+    color: white; /* Color blanco para el nombre en el nuevo fondo */
+    font-size: 2em;
+    margin: 0;
+}
+
+.barra-navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.barra-navegacion li {
+    margin-left: 20px;
+}
+
+.barra-navegacion a {
+    text-decoration: none;
+    color: white; /* Color blanco para los enlaces en el nuevo fondo */
+    transition: all 0.3s ease;
+}
+
+.barra-navegacion a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #b3e5fc; /* Un color de resalte más claro */
+}
+
+/* Estilos de la sección "Acerca de mí" */
+.seccion-acerca-de {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.seccion-acerca-de .perfil img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-right: 30px;
+    object-fit: cover;
+}
+
+.info-perfil h2 {
+    font-size: 2em;
+    color: white;
+}
+
+.info-perfil p {
+    font-size: 1.1em;
+    color: #eee;
+}
+
+/* Estilos de la sección de Habilidades */
+.seccion-habilidades {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.seccion-habilidades h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.lista-habilidades {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.habilidad-item {
+    text-align: center;
+    width: 120px;
+}
+
+.habilidad-item i {
+    font-size: 80px;
+    color: white;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.habilidad-item i:hover {
+    color: #b3e5fc;
+}
+
+.habilidad-item p {
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilos de la sección de Proyectos */
+.seccion-proyectos {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.seccion-proyectos h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.contenedor-proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proyecto-item {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.proyecto-item:hover {
+    transform: translateY(-5px);
+}
+
+.proyecto-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.proyecto-item h3 {
+    margin: 0 0 10px 0;
+    color: white;
+}
+
+.proyecto-item p {
+    font-size: 1em;
+    color: #eee;
+}
+
+/* Estilos para la sección de Recomendaciones */
+.seccion-recomendaciones {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.seccion-recomendaciones h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.contenedor-recomendaciones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.recomendacion-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-style: italic;
+    text-align: left;
+    color: white;
+}
+
+.recomendacion-item p {
+    margin: 0 0 10px 0;
+}
+
+.recomendacion-item .autor {
+    font-style: normal;
+    font-weight: bold;
+    color: #b3e5fc;
+    text-align: right;
+}
+
+/* Estilos para el formulario de recomendación */
+.form-recomendacion {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.form-recomendacion h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.form-recomendacion form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    color: white;
+}
+
+.form-recomendacion label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-recomendacion input,
+.form-recomendacion textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+}
+
+.form-recomendacion button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.form-recomendacion button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el mensaje emergente */
+.mensaje-oculto {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+/* Estilos para el efecto de "vidrio esmerilado" en las secciones */
+.seccion {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque, como un cristal */
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
