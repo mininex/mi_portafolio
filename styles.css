@@ -1,33 +1,34 @@
-/* Nuevo estilo para el cuerpo con fondo animado */
+:root {
+  --color-principal: #011c40; /* Azul muy oscuro, casi negro */
+  --color-secundario: #023859; /* Azul oscuro */
+  --color-acento: #26658c; /* Azul medio */
+  --color-claro: #54acbf; /* Azul claro */
+  --color-texto: #a7ebf2; /* Azul muy claro, casi blanco */
+}
+
 body {
-    /* Define un degradado que abarca todo el cuerpo */
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%; /* Permite que el degradado sea más grande que la pantalla */
-    animation: gradientAnimation 15s ease infinite; /* Aplica una animación */
-    height: 100vh; /* Asegura que el fondo ocupe toda la altura */
+    /* Fondo animado que se mueve lentamente */
+    background: linear-gradient(-45deg, #011c40, #023859, #26658c, #54acbf);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    color: white; /* Para que el texto sea visible en el fondo */
+    color: var(--color-texto);
 }
 
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%; /* Inicio de la animación */
-    }
-    50% {
-        background-position: 100% 50%; /* Mitad de la animación */
-    }
-    100% {
-        background-position: 0% 50%; /* Regresa al inicio */
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-header header {
-    display: flex; /* Convierte el encabezado en un contenedor flexible */
-    justify-content: space-between; /* Distribuye los elementos (nombre y nav) a los extremos */
-    align-items: center; /* Centra los elementos verticalmente */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px 50px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparente */
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
@@ -35,9 +36,10 @@ header header {
 }
 
 .nombre-estilo {
-    color: white; /* Color blanco para el nombre en el nuevo fondo */
+    color: var(--color-texto);
     font-size: 2em;
     margin: 0;
+    text-shadow: 0 0 5px var(--color-texto);
 }
 
 .barra-navegacion ul {
@@ -53,24 +55,34 @@ header header {
 
 .barra-navegacion a {
     text-decoration: none;
-    color: white; /* Color blanco para los enlaces en el nuevo fondo */
+    color: var(--color-texto);
     transition: all 0.3s ease;
+    text-shadow: 0 0 2px var(--color-texto);
 }
 
 .barra-navegacion a:hover {
     font-weight: bold;
     text-decoration: underline;
-    color: #b3e5fc; /* Un color de resalte más claro */
+    color: var(--color-claro);
+    text-shadow: 0 0 10px var(--color-claro);
 }
 
-/* Estilos de la sección "Acerca de mí" */
+.seccion {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .seccion-acerca-de {
     display: flex;
     align-items: center;
     padding: 50px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 .seccion-acerca-de .perfil img {
     border-radius: 50%;
     width: 200px;
@@ -78,76 +90,66 @@ header header {
     margin-right: 30px;
     object-fit: cover;
 }
-
 .info-perfil h2 {
     font-size: 2em;
-    color: white;
+    color: var(--color-texto);
 }
-
 .info-perfil p {
     font-size: 1.1em;
-    color: #eee;
+    color: var(--color-texto);
+    line-height: 1.6;
 }
 
-/* Estilos de la sección de Habilidades */
 .seccion-habilidades {
     text-align: center;
     padding: 50px 20px;
 }
-
 .seccion-habilidades h2 {
     font-size: 2em;
     margin-bottom: 40px;
-    color: white;
+    color: var(--color-texto);
 }
-
 .lista-habilidades {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
 }
-
 .habilidad-item {
     text-align: center;
     width: 120px;
 }
-
 .habilidad-item i {
     font-size: 80px;
-    color: white;
+    color: var(--color-texto);
     margin-bottom: 10px;
     transition: color 0.3s;
+    text-shadow: 0 0 5px var(--color-texto);
 }
-
 .habilidad-item i:hover {
-    color: #b3e5fc;
+    color: var(--color-acento);
+    text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
 }
-
 .habilidad-item p {
     font-weight: bold;
-    color: white;
+    color: var(--color-texto);
 }
 
-/* Estilos de la sección de Proyectos */
 .seccion-proyectos {
     text-align: center;
     padding: 50px 20px;
 }
-
 .seccion-proyectos h2 {
     font-size: 2em;
     margin-bottom: 40px;
-    color: white;
+    color: var(--color-texto);
 }
-
 .contenedor-proyectos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
 }
-
 .proyecto-item {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
@@ -155,12 +157,11 @@ header header {
     width: 300px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
 }
-
 .proyecto-item:hover {
     transform: translateY(-5px);
 }
-
 .proyecto-item img {
     width: 100%;
     height: 180px;
@@ -168,36 +169,30 @@ header header {
     border-radius: 6px;
     margin-bottom: 15px;
 }
-
 .proyecto-item h3 {
     margin: 0 0 10px 0;
-    color: white;
+    color: var(--color-texto);
 }
-
 .proyecto-item p {
     font-size: 1em;
-    color: #eee;
+    color: var(--color-texto);
 }
 
-/* Estilos para la sección de Recomendaciones */
 .seccion-recomendaciones {
     text-align: center;
     padding: 50px 20px;
 }
-
 .seccion-recomendaciones h2 {
     font-size: 2em;
     margin-bottom: 40px;
-    color: white;
+    color: var(--color-texto);
 }
-
 .contenedor-recomendaciones {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
 }
-
 .recomendacion-item {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -207,94 +202,157 @@ header header {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     font-style: italic;
     text-align: left;
-    color: white;
+    color: var(--color-texto);
 }
-
 .recomendacion-item p {
     margin: 0 0 10px 0;
 }
-
 .recomendacion-item .autor {
     font-style: normal;
     font-weight: bold;
-    color: #b3e5fc;
+    color: var(--color-acento);
     text-align: right;
 }
 
-/* Estilos para el formulario de recomendación */
-.form-recomendacion {
-    padding: 50px 20px;
+.seccion-seguridad {
     text-align: center;
+    padding: 50px;
+}
+.demo-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+.demo-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-acento);
+    background-color: transparent;
+    color: var(--color-texto);
+    margin-top: 10px;
+}
+.resultado-seguro {
+    background-color: rgba(102, 103, 171, 0.2);
+    color: var(--color-texto);
+    padding: 10px;
+    border: 1px solid var(--color-claro);
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.resultado-inseguro {
+    background-color: rgba(239, 64, 64, 0.2);
+    color: #ff9999;
+    padding: 10px;
+    border: 1px solid #ff0000;
+    margin-top: 15px;
+    border-radius: 5px;
 }
 
-.form-recomendacion h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: white;
+.seccion-feedback {
+    text-align: center;
+    padding: 50px;
 }
-
-.form-recomendacion form {
+#formulario-feedback {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
+}
+#formulario-feedback input,
+#formulario-feedback textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-acento);
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--color-texto);
+}
+#formulario-feedback button {
+    background-color: var(--color-acento);
+    color: var(--color-texto);
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px var(--color-acento);
+}
+#formulario-feedback button:hover {
+    background-color: var(--color-secundario);
+    box-shadow: 0 0 20px var(--color-acento), 0 0 30px var(--color-acento);
+}
+#ia-respuesta-container {
+    margin-top: 30px;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
+#ia-respuesta-container p {
+    color: var(--color-texto);
+}
+
+.chatbot-section {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-secundario);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+#chat-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px;
+}
+#chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+.user-message {
+    background-color: var(--color-acento);
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+.bot-message {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-texto);
+    align-self: flex-start;
+    margin-right: auto;
+}
+#chat-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
 }
-
-.form-recomendacion label {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.form-recomendacion input,
-.form-recomendacion textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: black;
-}
-
-.form-recomendacion button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+#send-chat {
+    background-color: var(--color-acento);
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.form-recomendacion button:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos para el mensaje emergente */
-.mensaje-oculto {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
-}
-
-/* Estilos para el efecto de "vidrio esmerilado" en las secciones */
-.seccion {
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque, como un cristal */
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 10px;
+    box-shadow: 0 0 10px var(--color-acento);
 }

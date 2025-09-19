@@ -3,44 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanessa Ferrer - Portafolio</title>
+    <title>Portafolio de [Tu Nombre] | Desarrollador Full-Stack & IA</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <canvas id="canvas-fondo"></canvas>
+    ```
+
+---
+
+### 2. El CSS: La base oscura y el posicionamiento
+
+Ahora, en tu archivo **`styles.css`**, vamos a hacer dos cosas:
+* Darle a tu `body` un fondo estático de un solo color (el púrpura oscuro de la paleta "MOON" es perfecto para esto).
+* Posicionar el lienzo (`canvas`) detrás de todo tu contenido.
+
+Reemplaza tu bloque `body { ... }` con este código:
+
+```css
+body {
+    background-color: var(--color-principal); 
+    color: var(--color-texto);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal por las partículas */
+    height: 100vh; /* Asegura que ocupe toda la altura */
+    position: relative; /* Para posicionar el canvas correctamente */
+}
+
+#canvas-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Esto es clave, lo pone detrás de todo */
+}
 
     <header>
-        <header>
-    <h1 class="nombre-estilo">Vanessa Ferrer</h1>
-    <nav class="barra-navegacion">
-        <ul>
-            <li>
-                <a href="#acerca-de">
-                    <i class="fas fa-home"></i> Inicio
-                </a>
-            </li>
-            <li><a href="#acerca-de">Acerca de</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#recomendaciones">Recomendaciones</a></li>
-        </ul>
-    </nav>
-</header>
+        <h1 class="nombre-estilo">[Tu Nombre]</h1>
+        <nav class="barra-navegacion">
+            <ul>
+                <li><a href="#acerca-de"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#recomendaciones">Recomendaciones</a></li>
+            </ul>
+        </nav>
     </header>
     
-    <section id="acerca-de" class="seccion-acerca-de">
+    <section id="acerca-de" class="seccion-acerca-de seccion">
         <div class="perfil">
-            <img src="foto-perfil.jpg" alt="Foto de perfil">
+            <img src="mi_foto.jpg" alt="Foto de perfil">
         </div>
         <div class="info-perfil">
-            <h2>Hola, mi nombre es Vanessa Ferrer</h2>
+            <h2>Hola, soy [Tu Nombre Completo]</h2>
             <p>
-                Soy estudiante de licenciatura en ciencia de datos y me apasiona el arte, la música, la gastronomía y la programación.
+                Soy un/a desarrollador/a full-stack, IA y científico/a de datos con un enfoque en la creación de soluciones inteligentes. Mi objetivo es transformar ideas en aplicaciones robustas y eficientes, combinando un diseño de front-end intuitivo con una lógica de back-end sólida.
             </p>
         </div>
     </section>
 
-    <section id="habilidades" class="seccion-habilidades">
+    <section id="habilidades" class="seccion-habilidades seccion">
         <h2>Habilidades</h2>
         <div class="lista-habilidades">
             <div class="habilidad-item">
@@ -55,61 +81,98 @@
                 <i class="fab fa-js-square"></i>
                 <p>JavaScript</p>
             </div>
+            <div class="habilidad-item">
+                <i class="fab fa-python"></i>
+                <p>Python</p>
             </div>
+            <div class="habilidad-item">
+                <i class="fas fa-database"></i>
+                <p>Ciencia de Datos</p>
+            </div>
+            <div class="habilidad-item">
+                <i class="fas fa-robot"></i>
+                <p>Inteligencia Artificial</p>
+            </div>
+        </div>
     </section>
     
-    <section id="proyectos" class="seccion-proyectos">
+    <section id="proyectos" class="seccion-proyectos seccion">
         <h2>Proyectos</h2>
         <div class="contenedor-proyectos">
             <div class="proyecto-item">
-                <img src="café.jpg" alt=>
-                <h3>Tienda de Café Online</h3>
-                <p>Un sitio web de comercio electrónico ficticio diseñado para una tienda de café. El objetivo era crear una experiencia de compra fluida con un diseño responsivo. Construido con HTML y CSS para la estructura y el estilo, y JavaScript para la interactividad, como el carrito de compras.</p>
+                <img src="ruta-a-imagen-proyecto1.jpg" alt="[Descripción del Proyecto 1]">
+                <h3>Recetas & Vida Sana</h3>
+                <p>Un blog personal desarrollado para compartir mi pasión por la comida saludable. Este proyecto me permitió consolidar mis conocimientos de HTML y CSS.</p>
             </div>
             <div class="proyecto-item">
-                <img src="holland.jpg" alt=>
-                <h3>Mi blog de viajes</h3>
-                <p>Un blog personal para documentar mis viajes y experiencias. Este proyecto me ayudó a practicar mis habilidades de diseño (CSS) y a crear un sistema de navegación sencillo e intuitivo (HTML). El diseño es minimalista y se enfoca en la legibilidad del contenido.</p>
+                <img src="ruta-a-imagen-proyecto2.jpg" alt="[Descripción del Proyecto 2]">
+                <h3>[Nombre del Proyecto 2]</h3>
+                <p>[Breve descripción del segundo proyecto.]</p>
             </div>
             <div class="proyecto-item">
-                <img src="huevos.jpg" alt=>
-                <h3>Blog de Comida Saludable</h3>
-                <p>Mi blog personal sobre comida saludable, donde publico recetas fáciles y consejos para una vida más balanceada. Fue una oportunidad para poner en práctica mis habilidades de desarrollo front-end, creando una plataforma donde la navegación fuera intuitiva y el contenido se viera atractivo para los lectores.</p>
+                <img src="ruta-a-imagen-proyecto3.jpg" alt="[Descripción del Proyecto 3]">
+                <h3>[Nombre del Proyecto 3]</h3>
+                <p>[Breve descripción del tercer proyecto.]</p>
             </div>
+        </div>
+    </section>
+
+    <section id="recomendaciones" class="seccion-recomendaciones seccion">
+        <h2>Recomendaciones</h2>
+        <div class="contenedor-recomendaciones">
+            <div class="recomendacion-item">
+                <p>"[Aquí va el texto de la recomendación 1.]"</p>
+                <p class="autor">- [Nombre del Autor 1]</p>
+            </div>
+            <div class="recomendacion-item">
+                <p>"[Aquí va el texto de la recomendación 2.]"</p>
+                <p class="autor">- [Nombre del Autor 2]</p>
+            </div>
+            <div class="recomendacion-item">
+                <p>"[Aquí va el texto de la recomendación 3.]"</p>
+                <p class="autor">- [Nombre del Autor 3]</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo-seguridad" class="seccion-seguridad seccion">
+        <h2>Demostración de Seguridad</h2>
+        <p>Prueba el campo de texto de abajo. El código malicioso no se ejecutará.</p>
+        <div class="demo-container">
+            <label for="input-demo">Escribe tu nombre (o un código malicioso):</label>
+            <input type="text" id="input-demo" placeholder="<script>alert('hackeado')</script>">
+            <div id="resultado-demo" class="resultado-seguro"></div>
+        </div>
+    </section>
+
+    <section id="feedback" class="seccion-feedback seccion">
+        <h2>Deje su opinión</h2>
+        <p>¡Hola! Me encantaría saber qué le pareció mi portafolio. Mi IA le dará una respuesta.</p>
+        <form id="formulario-feedback">
+            <label for="nombre-reclutador">Su nombre:</label>
+            <input type="text" id="nombre-reclutador" name="nombre-reclutador" required>
+            
+            <label for="comentario-reclutador">Su comentario:</label>
+            <textarea id="comentario-reclutador" name="comentario-reclutador" rows="4" required></textarea>
+            
+            <button type="submit">Enviar comentario</button>
+        </form>
+        <div id="ia-respuesta-container">
+            </div>
+    </section>
+
+    <section id="chatbot-container" class="chatbot-section">
+        <div id="chat-window">
+            <div id="chat-messages">
+                <div class="message bot-message">
+                    Hola, soy tu asistente de IA. ¿En qué puedo ayudarte hoy?
+                </div>
+            </div>
+            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí...">
+            <button id="send-chat">Enviar</button>
         </div>
     </section>
 
     <script src="scripts.js"></script>
 </body>
-</html><section id="recomendaciones" class="seccion-recomendaciones">
-    <h2>Recomendaciones</h2>
-    <div class="contenedor-recomendaciones">
-        <div class="recomendacion-item">
-            <p>"He tenido el placer de ver el trabajo de Vanessa a lo largo del curso. Su dedicación a dominar HTML, CSS y JavaScript es evidente en cada proyecto que entrega. Muestra una gran capacidad para resolver problemas y aplicar conceptos nuevos"</p>
-            <p class="autor">- Profesor del curso</p>
-        </div>
-        <div class="recomendacion-item">
-            <p>"Vanessa es una estudiante muy comprometida y proactiva. Siempre pregunta para entender mejor los temas y sus proyectos son un claro reflejo de su esfuerzo por la calidad y el detalle. Es un talento a seguir."</p>
-            <p class="autor">-Mentor del programa</p>
-        </div>
-        <div class="recomendacion-item">
-            <p>"Su trabajo en el curso muestra que [Tu Nombre] tiene una gran comprensión de los principios del desarrollo web. Su código es limpio y bien estructurado, lo que demuestra un gran potencial para el futuro"</p>
-            <p class="autor">-Estudiante del curso</p>
-        </div>
-    </div>
-</section> 
-<section class="form-recomendacion">
-    <h2>Deja tu recomendación</h2>
-    <form id="formulario-recomendacion">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        
-        <label for="recomendacion">Recomendación:</label>
-        <textarea id="recomendacion" name="recomendacion" rows="4" required></textarea>
-        
-        <button type="submit">Enviar</button>
-    </form>
-    <div id="mensaje-confirmacion" class="mensaje-oculto">
-        <p>¡Gracias! Tu recomendación ha sido enviada con éxito.</p>
-    </div>
-</section>
+</html>
