@@ -1,81 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- Lógica del fondo de partículas ---
-    const canvas = document.getElementById('canvas-fondo');
-    const ctx = canvas.getContext('2d');
-    let W, H, particles;
-    const colors = ['#f5d5e0', '#6667ab', '#7b337e']; // Colores de tu paleta
+    const bgImg1 = document.getElementById('bg-img-1');
+    const bgImg2 = document.getElementById('bg-img-2');
 
-    function resizeCanvas() {
-        W = canvas.width = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-        particles = [];
-        for (let i = 0; i < 50; i++) {
-            particles.push(new Particle());
-        }
-    }
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('scroll', function() {
+        let scrollY = window.scrollY;
+        bgImg1.style.transform = `translateY(${scrollY * 0.5}px)`;
+        bgImg2.style.transform = `translateY(${scrollY * 0.3}px)`;
+    });
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * W;
-            this.y = Math.random() * H;
-            this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 3 - 1.5;
-            this.speedY = Math.random() * 3 - 1.5;
-            this.color = colors[Math.floor(Math.random() * colors.length)];
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > W || this.x < 0) this.speedX *= -1;
-            if (this.y > H || this.y < 0) this.speedY *= -1;
-        }
-        draw() {
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
+    const sr = ScrollReveal({
+        origin: 'bottom',
+        distance: '50px',
+        duration: 1000,
+        easing: 'ease-in-out',
+        reset: false
+    });
 
-    function animate() {
-        ctx.fillStyle = 'rgba(33, 6, 53, 0.1)'; // Limpia con un color semitransparente
-        ctx.fillRect(0, 0, W, H);
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        connectParticles();
-        requestAnimationFrame(animate);
-    }
-    
-    function connectParticles() {
-        let opacityValue = 1;
-        for (let a = 0; a < particles.length; a++) {
-            for (let b = a; b < particles.length; b++) {
-                let distance = ((particles[a].x - particles[b].x) ** 2 + (particles[a].y - particles[b].y) ** 2) ** 0.5;
-                if (distance < 100) {
-                    opacityValue = 1 - (distance / 100);
-                    ctx.strokeStyle = `rgba(122, 51, 126, ${opacityValue})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[a].x, particles[a].y);
-                    ctx.lineTo(particles[b].x, particles[b].y);
-                    ctx.stroke();
-                }
-            }
-        }
-    }
+    sr.reveal('section', { interval: 200 });
 
-    resizeCanvas();
-    animate();
-
-    // --- Lógica del formulario de Recomendaciones ---
-    const contenedorRecomendaciones = document.querySelector('.contenedor-recomendaciones');
-    // ...
-
-    // --- Lógica del formulario de Feedback ---
     const formularioFeedback = document.getElementById('formulario-feedback');
     const nombreInput = document.getElementById('nombre-reclutador');
     const comentarioInput = document.getElementById('comentario-reclutador');
@@ -101,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('/enviar_feedback', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({ nombre: nombre, comentario: comentario }),
         })
         .then(response => response.json())
@@ -117,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // --- Lógica de la demostración de Seguridad ---
     const inputDemo = document.getElementById('input-demo');
     const resultadoDemo = document.getElementById('resultado-demo');
 
@@ -127,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (textoInseguro.includes('<script>')) {
             resultadoDemo.textContent = `Código malicioso bloqueado. El texto inseguro era: ${textoSeguro}`;
-            resultadoDemo.className = 'resultado-seguro';
+            resultadoDemo.className = 'resultado-inseguro';
         } else {
             resultadoDemo.textContent = `Tu texto es seguro: ${textoSeguro}`;
             resultadoDemo.className = 'resultado-seguro';
@@ -135,6 +79,17 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // --- Lógica del Chatbot ---
+    const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+
+    chatbotToggleBtn.addEventListener('click', () => {
+        chatbotWindow.classList.toggle('hidden');
+    });
+    chatbotCloseBtn.addEventListener('click', () => {
+        chatbotWindow.classList.add('hidden');
+    });
+
     const chatInput = document.getElementById('chat-input');
     const sendChatBtn = document.getElementById('send-chat');
     const chatMessages = document.getElementById('chat-messages');
