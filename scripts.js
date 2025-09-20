@@ -1,24 +1,61 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const bgImg1 = document.getElementById('bg-img-1');
-    const bgImg2 = document.getElementById('bg-img-2');
+    const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
 
-    window.addEventListener('scroll', function() {
-        let scrollY = window.scrollY;
-        bgImg1.style.transform = `translateY(${scrollY * 0.5}px)`;
-        bgImg2.style.transform = `translateY(${scrollY * 0.3}px)`;
+    chatbotToggleBtn.addEventListener('click', () => {
+        chatbotWindow.classList.toggle('hidden');
+    });
+    chatbotCloseBtn.addEventListener('click', () => {
+        chatbotWindow.classList.add('hidden');
     });
 
-    const sr = ScrollReveal({
-        origin: 'bottom',
-        distance: '50px',
-        duration: 1000,
-        easing: 'ease-in-out',
-        reset: false
+    const chatInput = document.getElementById('chat-input');
+    const sendChatBtn = document.getElementById('send-chat');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function addMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        messageDiv.textContent = message;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendChatBtn.addEventListener('click', () => {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === '') return;
+
+        addMessage(userMessage, true);
+        chatInput.value = '';
+
+        fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: userMessage }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            setTimeout(() => {
+                addMessage(data.reply);
+            }, 500);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            addMessage('Lo siento, hubo un error. Intenta de nuevo más tarde.');
+        });
     });
 
-    sr.reveal('section', { interval: 200 });
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendChatBtn.click();
+        }
+    });
 
+    // --- Lógica del formulario de Recomendaciones ---
+    const contenedorRecomendaciones = document.querySelector('.contenedor-recomendaciones');
     const formularioFeedback = document.getElementById('formulario-feedback');
     const nombreInput = document.getElementById('nombre-reclutador');
     const comentarioInput = document.getElementById('comentario-reclutador');
@@ -75,61 +112,6 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             resultadoDemo.textContent = `Tu texto es seguro: ${textoSeguro}`;
             resultadoDemo.className = 'resultado-seguro';
-        }
-    });
-
-    // --- Lógica del Chatbot ---
-    const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
-
-    chatbotToggleBtn.addEventListener('click', () => {
-        chatbotWindow.classList.toggle('hidden');
-    });
-    chatbotCloseBtn.addEventListener('click', () => {
-        chatbotWindow.classList.add('hidden');
-    });
-
-    const chatInput = document.getElementById('chat-input');
-    const sendChatBtn = document.getElementById('send-chat');
-    const chatMessages = document.getElementById('chat-messages');
-
-    function addMessage(message, isUser = false) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message');
-        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-        messageDiv.textContent = message;
-        chatMessages.appendChild(messageDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    sendChatBtn.addEventListener('click', () => {
-        const userMessage = chatInput.value.trim();
-        if (userMessage === '') return;
-
-        addMessage(userMessage, true);
-        chatInput.value = '';
-
-        fetch('/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: userMessage }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            setTimeout(() => {
-                addMessage(data.reply);
-            }, 500);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            addMessage('Lo siento, hubo un error. Intenta de nuevo más tarde.');
-        });
-    });
-
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendChatBtn.click();
         }
     });
 });
