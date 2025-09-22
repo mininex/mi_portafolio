@@ -5,7 +5,6 @@
   --color-claro: #a7ebf2;
   --color-texto: #f0f0f0;
 }
-
 body {
     background-color: var(--color-principal);
     color: var(--color-texto);
@@ -15,7 +14,6 @@ body {
     position: relative;
     font-size: 0.95rem;
 }
-
 #parallax-bg {
     position: fixed;
     top: 0;
@@ -37,7 +35,6 @@ body {
 }
 #bg-img-1 { transform: translateY(0); }
 #bg-img-2 { transform: translateY(0); }
-
 header {
     display: flex;
     justify-content: space-between;
@@ -66,7 +63,6 @@ header {
     height: 100%;
     object-fit: cover;
 }
-
 .barra-navegacion ul {
     list-style: none;
     margin: 0;
@@ -86,7 +82,6 @@ header {
     color: var(--color-acento);
     text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
 }
-
 section {
     text-align: center;
     padding: 50px;
@@ -96,7 +91,6 @@ section {
     border-radius: 0;
     box-shadow: none;
 }
-
 .seccion-acerca-de {
     display: flex;
     align-items: center;
@@ -133,7 +127,6 @@ section {
 .keyword-5 { color: #8a2be2; }
 .keyword-6 { color: #ffa500; }
 .keyword-7 { color: #c4f2a7; }
-
 .seccion-habilidades h2 {
     font-size: 2em;
     margin-bottom: 40px;
@@ -143,12 +136,12 @@ section {
     display: flex;
     justify-content: center;
     gap: 50px;
-    max-width: 800px; /* Asegura que la sección sea lo suficientemente ancha */
+    max-width: 800px;
     margin: 0 auto;
 }
 .habilidad-item {
     text-align: center;
-    width: 100px; /* Ancho ajustado para que quepan todos */
+    width: 100px;
 }
 .habilidad-item i {
     font-size: 80px;
@@ -163,7 +156,6 @@ section {
 .habilidad-item .fa-python { color: #306998; }
 .habilidad-item .fa-database { color: #66bb6a; }
 .habilidad-item .fa-robot { color: #ff6f00; }
-
 .habilidad-item i:hover {
     color: var(--color-acento);
     text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
@@ -172,7 +164,6 @@ section {
     font-weight: bold;
     color: var(--color-texto);
 }
-
 .seccion-recomendaciones h2 {
     font-size: 2em;
     margin-bottom: 40px;
@@ -204,7 +195,6 @@ section {
     color: var(--color-acento);
     text-align: right;
 }
-
 .seccion-seguridad {
     text-align: center;
     padding: 50px;
@@ -239,7 +229,6 @@ section {
     margin-top: 15px;
     border-radius: 5px;
 }
-
 .seccion-feedback {
     text-align: center;
     padding: 50px;
@@ -286,7 +275,6 @@ section {
 #ia-respuesta-container p {
     color: var(--color-texto);
 }
-
 .chatbot-toggle-btn {
     position: fixed;
     bottom: 20px;
@@ -309,7 +297,6 @@ section {
 .chatbot-toggle-btn:hover {
     transform: scale(1.1);
 }
-
 .chatbot-window {
     position: fixed;
     bottom: 90px;

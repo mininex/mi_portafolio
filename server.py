@@ -1,56 +1,44 @@
-from flask import Flask, request, jsonify
-from textblob import TextBlob
+from flask import Flask, request, jsonify, render_template
+import spacy
 
-app = Flask(__name__)
+# Asegúrate de que las carpetas 'static' y 'templates' existan
+app = Flask(__name__, static_folder='static', template_folder='templates')
+try:
+    nlp = spacy.load("es_core_news_sm")
+except OSError:
+    print("El modelo de SpaCy no está instalado. Ejecuta: python -m spacy download es_core_news_sm")
+    exit()
 
 @app.route('/')
 def home():
-    return "Hola desde el servidor de Flask."
-
-@app.route('/enviar_feedback', methods=['POST'])
-def enviar_feedback():
-    data = request.get_json()
-    nombre = data.get('nombre')
-    comentario = data.get('comentario')
-
-    comentario_lower = comentario.lower()
-    respuesta_ia = ""
-
-    if any(palabra in comentario_lower for palabra in ["excelente", "impresionante", "felicidades", "genial", "increíble", "gustó", "fantástico"]):
-        respuesta_ia = f"¡Hola, {nombre}! Muchísimas gracias por tu comentario tan positivo. Me alegra que mi trabajo te haya parecido interesante."
-    elif any(palabra in comentario_lower for palabra in ["mejorar", "cambiar", "no me gustó", "problema", "malo"]):
-        respuesta_ia = f"¡Hola, {nombre}! Aprecio mucho tu honestidad. La retroalimentación constructiva es vital para mi crecimiento, ¡gracias por tomarte el tiempo!"
-    else:
-        respuesta_ia = f"¡Hola, {nombre}! Gracias por tu opinión. Me emociona saber que has visitado mi portafolio. Si tienes alguna pregunta, no dudes en contactarme."
-
-    return jsonify({"respuesta": respuesta_ia})
+    return render_template('index.html')
 
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()
-    user_message = data.get('message', '').lower()
-
-    analisis = TextBlob(user_message)
-    sentimiento_polaridad = analisis.sentiment.polarity
+    user_message = data.get('message', '')
+    doc = nlp(user_message)
     
     reply = ""
 
-    if "proyectos" in user_message or "trabajo" in user_message:
-        reply = "¡Claro! Mis proyectos demuestran mi experiencia en desarrollo web, ciencia de datos e IA."
-    elif "habilidades" in user_message or "tecnologias" in user_message:
-        reply = "Mis habilidades principales son: HTML, CSS, JavaScript, Python y mi enfoque en Inteligencia Artificial."
-    elif "contacto" in user_message or "contactarte" in user_message:
-        reply = "Puedes contactarme a través de mis redes sociales o enviándome un mensaje en la sección de feedback."
-    elif "quien eres" in user_message or "tu nombre" in user_message:
-        reply = "Soy el asistente de IA del portafolio de [Tu Nombre]. Mi trabajo es ayudarte a navegar por sus proyectos y habilidades."
-    elif "hola" in user_message or "que tal" in user_message:
-        reply = "¡Hola! ¿Cómo puedo ayudarte a conocer el trabajo de [Tu Nombre]?"
-    elif sentimiento_polaridad > 0.3:
-        reply = "¡Qué bueno que lo veas de forma positiva! Me alegra que mi trabajo te cause una buena impresión."
-    elif sentimiento_polaridad < -0.3:
-        reply = "Lamento que tengas esa percepción. Aprecio tu honestidad y estoy aquí para aclarar cualquier duda."
+    user_message_lower = user_message.lower()
+
+    if any(token.lemma_ in ["nombre", "quien", "eres"] for token in doc):
+        reply = "Mi nombre es Vanessa Ferrer."
+    elif any(token.lemma_ in ["habilidad", "tecnologia", "saber", "conocer"] for token in doc):
+        reply = "Mis habilidades son: Python, Desarrollo de AI, Bases de datos, SQL, algo de HTML, JavaScript, CSS, Diseño Web."
+    elif any(token.lemma_ in ["estudio", "licenciatura", "estudiar", "formacion"] for token in doc):
+        reply = "Estoy estudiando una licenciatura en ingeniería en Ciencia de Datos. Planeo hacer una maestría en AI."
+    elif any(token.lemma_ in ["idioma", "hablar"] for token in doc):
+        reply = "Hablo inglés y francés de forma fluida. También estoy aprendiendo japonés."
+    elif any(token.lemma_ in ["pasión", "apasiona", "gusta", "interesa"] for token in doc) or "cyberseguridad" in user_message_lower:
+        reply = "Me apasiona la ciberseguridad y planeo combinarla con AI y Ciencia de Datos para proyectos a mayor escala."
+    elif any(token.lemma_ in ["futuro", "plan"] for token in doc):
+        reply = "Mi plan a futuro es combinar mis tres habilidades principales: AI, Ciencia de Datos y Ciberseguridad, para lograr proyectos a mayor escala."
+    elif any(token.lemma_ in ["hola", "saludo", "que tal"] for token in doc):
+        reply = "¡Hola! ¿Cómo puedo ayudarte a conocer el trabajo de Vanessa Ferrer?"
     else:
-        reply = "No estoy seguro de haber entendido. ¿Podrías preguntarme sobre mis proyectos, habilidades o cómo contactarme?"
+        reply = "No estoy seguro de haber entendido. ¿Podrías preguntarme sobre mis habilidades, mi formación, mis idiomas o mis planes a futuro?"
 
     return jsonify({"reply": reply})
 

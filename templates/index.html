@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Vanessa | Data Scientist & AI Developer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="parallax-bg">
+        <img id="bg-img-1" src="{{ url_for('static', filename='bg-img-1.jpg') }}" alt="Código de programación">
+        <img id="bg-img-2" src="{{ url_for('static', filename='bg-img-2.jpg') }}" alt="Análisis de datos">
+    </div>
+    <header>
+        <div class="header-profile-pic">
+            <img src="{{ url_for('static', filename='foto-perfil.jpg') }}" alt="Foto de perfil">
+        </div>
+        <nav class="barra-navegacion">
+            <ul>
+                <li><a href="#acerca-de"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#recomendaciones">Recomendaciones</a></li>
+                <li><a href="#demo-seguridad">Seguridad</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="acerca-de" class="seccion-acerca-de">
+        <div class="info-perfil">
+            <h2>Mi nombre es Vanessa Ferrer</h2>
+            <p class="presentacion-texto">
+                Soy <span class="keyword-1">Científico de Datos</span> y <span class="keyword-2">Desarrolladora</span> de AI <span class="keyword-3">con un enfoque</span> en la creación <span class="keyword-4"> de soluciones inteligentes</span>. Mi objetivo es transformar <span class="keyword-5">ideas en aplicaciones</span> robustas y <span class="keyword-6">eficientes</span>, combinando un diseño de front-end intuitivo con una lógica de back-end sólida, todo ello con un compromiso firme con la <span class="keyword-7">ciberseguridad</span>.
+            </p>
+        </div>
+    </section>
+    <section id="habilidades" class="seccion-habilidades">
+        <h2>Habilidades</h2>
+        <div class="lista-habilidades">
+            <div class="habilidad-item">
+                <i class="fab fa-html5"></i>
+                <p>HTML5</p>
+            </div>
+            <div class="habilidad-item">
+                <i class="fab fa-css3-alt"></i>
+                <p>CSS3</p>
+            </div>
+            <div class="habilidad-item">
+                <i class="fab fa-js-square"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="habilidad-item">
+                <i class="fab fa-python"></i>
+                <p>Python</p>
+            </div>
+            <div class="habilidad-item">
+                <i class="fas fa-database"></i>
+                <p>Ciencia de Datos</p>
+            </div>
+            <div class="habilidad-item">
+                <i class="fas fa-robot"></i>
+                <p>Inteligencia Artificial</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="recomendaciones" class="seccion-recomendaciones">
+        <h2>Recomendaciones</h2>
+        <div class="contenedor-recomendaciones">
+            <div class="recomendacion-item">
+                <p>"[Aquí va el texto de la recomendación 1.]"</p>
+                <p class="autor">- [Nombre del Autor 1]</p>
+            </div>
+            <div class="recomendacion-item">
+                <p>"[Aquí va el texto de la recomendación 2.]"</p>
+                <p class="autor">- [Nombre del Autor 2]</p>
+            </div>
+            <div class="recomendacion-item">
+                <p>"[Aquí va el texto de la recomendación 3.]"</p>
+                <p class="autor">- [Nombre del Autor 3]</p>
+            </div>
+        </div>
+    </section>
+    <section id="demo-seguridad" class="seccion-seguridad">
+        <h2>Demostración de Seguridad</h2>
+        <p>Prueba el campo de texto de abajo. El código malicioso no se ejecutará.</p>
+        <div class="demo-container">
+            <label for="input-demo">Escribe tu nombre (o un código malicioso):</label>
+            <input type="text" id="input-demo" placeholder="<script>alert('hackeado')</script>">
+            <div id="resultado-demo" class="resultado-seguro"></div>
+        </div>
+    </section>
+    <button id="chatbot-toggle-btn" class="chatbot-toggle-btn">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <div id="chatbot-window" class="chatbot-window hidden">
+        <div class="chatbot-header">
+            <span>Asistente de IA</span>
+            <button id="chatbot-close-btn">&times;</button>
+        </div>
+        <div id="chat-messages">
+            <div class="message bot-message">
+                Hola, soy tu asistente de IA. ¿En qué puedo ayudarte hoy?
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí...">
+            <button id="send-chat"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
