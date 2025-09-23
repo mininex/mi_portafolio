@@ -31,7 +31,7 @@ def chat():
         reply = "Estoy estudiando una licenciatura en ingeniería en Ciencia de Datos. Planeo hacer una maestría en AI."
     elif any(token.lemma_ in ["idioma", "hablar"] for token in doc):
         reply = "Hablo inglés y francés de forma fluida. También estoy aprendiendo japonés."
-    elif any(token.lemma_ in ["pasión", "apasiona", "gusta", "interesa"] for token in doc) or "cyberseguridad" in user_message_lower:
+    elif any(token.lemma_ in ["pasión", "apasiona", "gusta", "interesa"] for token in doc) or "ciberseguridad" in user_message_lower:
         reply = "Me apasiona la ciberseguridad y planeo combinarla con AI y Ciencia de Datos para proyectos a mayor escala."
     elif any(token.lemma_ in ["futuro", "plan"] for token in doc):
         reply = "Mi plan a futuro es combinar mis tres habilidades principales: AI, Ciencia de Datos y Ciberseguridad, para lograr proyectos a mayor escala."

@@ -1,3 +1,4 @@
+/* 🎨 Variables de color */
 :root {
   --color-principal: #0a0b1f;
   --color-secundario: #1a2336;
@@ -5,121 +6,136 @@
   --color-claro: #a7ebf2;
   --color-texto: #f0f0f0;
 }
+
+/* 🖼️ Fondo y estructura base */
 body {
-    background-color: var(--color-principal);
-    color: var(--color-texto);
-    font-family: 'Fira Code', monospace;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    font-size: 0.95rem;
+  background-color: var(--color-principal);
+  color: var(--color-texto);
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 0.95rem;
 }
+
+/* 🔹 Fondo partículas */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2; /* queda detrás de todo */
+  background: #000; /* color base mientras cargan las partículas */
+}
+
+/* 🔹 Fondo parallax */
 #parallax-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 #parallax-bg img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    opacity: 0.1;
-    filter: blur(2px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.1;
+  filter: blur(2px);
 }
 #bg-img-1 { transform: translateY(0); }
 #bg-img-2 { transform: translateY(0); }
+
+/* 🧭 Header y navegación */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-    background-color: transparent;
-    backdrop-filter: none;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background-color: transparent;
+  backdrop-filter: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .header-profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid var(--color-acento);
-    box-shadow: 0 0 10px var(--color-acento);
-    transition: transform 0.3s;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-acento);
+  box-shadow: 0 0 10px var(--color-acento);
+  transition: transform 0.3s;
 }
-.header-profile-pic:hover {
-    transform: scale(1.1);
-}
+.header-profile-pic:hover { transform: scale(1.1); }
 .header-profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .barra-navegacion ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-.barra-navegacion li {
-    margin-left: 20px;
-}
+.barra-navegacion li { margin-left: 20px; }
 .barra-navegacion a {
-    text-decoration: none;
-    color: var(--color-texto);
-    transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--color-texto);
+  transition: all 0.3s ease;
 }
 .barra-navegacion a:hover {
-    font-weight: bold;
-    color: var(--color-acento);
-    text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
+  font-weight: bold;
+  color: var(--color-acento);
+  text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
 }
+
+/* 📄 Secciones generales */
 section {
-    text-align: center;
-    padding: 50px;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
+  text-align: center;
+  padding: 50px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
+
+/* 🧑 Acerca de mí */
 .seccion-acerca-de {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .info-perfil h2 {
-    font-size: 2em;
-    color: var(--color-texto);
+  font-size: 2em;
+  color: var(--color-texto);
 }
 .info-perfil p {
-    font-size: 1em;
-    color: var(--color-texto);
-    line-height: 1.6;
+  font-size: 1em;
+  color: var(--color-texto);
+  line-height: 1.6;
 }
 .presentacion-texto {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: 600px;
-    text-align: left;
-    background-color: var(--color-secundario);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--color-acento);
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+  background-color: var(--color-secundario);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--color-acento);
 }
-.presentacion-texto span {
-    font-weight: bold;
-}
+.presentacion-texto span { font-weight: bold; }
 .keyword-1 { color: #f2a7a7; }
 .keyword-2 { color: #a7ebf2; }
 .keyword-3 { color: #f7df1e; }
@@ -127,28 +143,27 @@ section {
 .keyword-5 { color: #8a2be2; }
 .keyword-6 { color: #ffa500; }
 .keyword-7 { color: #c4f2a7; }
+
+/* ⚡ Habilidades */
 .seccion-habilidades h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
-    color: var(--color-texto);
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: var(--color-texto);
 }
 .lista-habilidades {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    max-width: 800px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  max-width: 800px;
+  margin: 0 auto;
 }
-.habilidad-item {
-    text-align: center;
-    width: 100px;
-}
+.habilidad-item { text-align: center; width: 100px; }
 .habilidad-item i {
-    font-size: 80px;
-    color: var(--color-texto);
-    margin-bottom: 10px;
-    transition: color 0.3s;
-    text-shadow: 0 0 5px var(--color-texto);
+  font-size: 80px;
+  color: var(--color-texto);
+  margin-bottom: 10px;
+  transition: color 0.3s;
+  text-shadow: 0 0 5px var(--color-texto);
 }
 .habilidad-item .fa-html5 { color: #e34c26; }
 .habilidad-item .fa-css3-alt { color: #264de4; }
@@ -157,225 +172,219 @@ section {
 .habilidad-item .fa-database { color: #66bb6a; }
 .habilidad-item .fa-robot { color: #ff6f00; }
 .habilidad-item i:hover {
-    color: var(--color-acento);
-    text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
+  color: var(--color-acento);
+  text-shadow: 0 0 10px var(--color-acento), 0 0 20px var(--color-acento);
 }
 .habilidad-item p {
-    font-weight: bold;
-    color: var(--color-texto);
+  font-weight: bold;
+  color: var(--color-texto);
 }
+
+/* 📝 Recomendaciones */
 .seccion-recomendaciones h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
-    color: var(--color-texto);
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: var(--color-texto);
 }
 .contenedor-recomendaciones {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 .recomendacion-item {
-    background-color: transparent;
-    border: 1px solid var(--color-acento);
-    border-radius: 8px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 0 10px var(--color-acento);
-    font-style: italic;
-    text-align: left;
-    color: var(--color-texto);
+  background-color: transparent;
+  border: 1px solid var(--color-acento);
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px var(--color-acento);
+  font-style: italic;
+  text-align: left;
+  color: var(--color-texto);
 }
-.recomendacion-item p {
-    margin: 0 0 10px 0;
-}
+.recomendacion-item p { margin: 0 0 10px 0; }
 .recomendacion-item .autor {
-    font-style: normal;
-    font-weight: bold;
-    color: var(--color-acento);
-    text-align: right;
+  font-style: normal;
+  font-weight: bold;
+  color: var(--color-acento);
+  text-align: right;
 }
-.seccion-seguridad {
-    text-align: center;
-    padding: 50px;
-}
+
+/* 🔐 Seguridad */
+.seccion-seguridad { text-align: center; padding: 50px; }
 .demo-container {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
 }
 .demo-container input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--color-acento);
-    background-color: var(--color-secundario);
-    color: var(--color-texto);
-    margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--color-acento);
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  margin-top: 10px;
 }
 .resultado-seguro {
-    background-color: var(--color-acento);
-    color: var(--color-principal);
-    padding: 10px;
-    border: 1px solid var(--color-claro);
-    margin-top: 15px;
-    border-radius: 5px;
+  background-color: var(--color-acento);
+  color: var(--color-principal);
+  padding: 10px;
+  border: 1px solid var(--color-claro);
+  margin-top: 15px;
+  border-radius: 5px;
 }
 .resultado-inseguro {
-    background-color: var(--color-texto);
-    color: var(--color-principal);
-    padding: 10px;
-    border: 1px solid var(--color-claro);
-    margin-top: 15px;
-    border-radius: 5px;
+  background-color: var(--color-texto);
+  color: var(--color-principal);
+  padding: 10px;
+  border: 1px solid var(--color-claro);
+  margin-top: 15px;
+  border-radius: 5px;
 }
-.seccion-feedback {
-    text-align: center;
-    padding: 50px;
-}
+
+/* 📬 Feedback */
+.seccion-feedback { text-align: center; padding: 50px; }
 #formulario-feedback {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
 }
 #formulario-feedback input,
 #formulario-feedback textarea {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--color-acento);
-    border-radius: 5px;
-    background-color: var(--color-secundario);
-    color: var(--color-texto);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--color-acento);
+  border-radius: 5px;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
 }
 #formulario-feedback button {
-    background-color: var(--color-acento);
-    color: var(--color-principal);
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    box-shadow: 0 0 10px var(--color-acento);
+  background-color: var(--color-acento);
+  color: var(--color-principal);
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 10px var(--color-acento);
 }
 #formulario-feedback button:hover {
-    background-color: var(--color-claro);
-    color: var(--color-principal);
-    box-shadow: 0 0 20px var(--color-acento), 0 0 30px var(--color-acento);
+  background-color: var(--color-claro);
+  color: var(--color-principal);
+  box-shadow: 0 0 20px var(--color-acento), 0 0 30px var(--color-acento);
 }
 #ia-respuesta-container {
-    margin-top: 30px;
-    font-style: italic;
-    background-color: var(--color-secundario);
-    padding: 20px;
-    border-radius: 10px;
-    display: none;
+  margin-top: 30px;
+  font-style: italic;
+  background-color: var(--color-secundario);
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
 }
-#ia-respuesta-container p {
-    color: var(--color-texto);
-}
+#ia-respuesta-container p { color: var(--color-texto); }
+
+/* 🤖 Chatbot */
 .chatbot-toggle-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--color-acento);
-    color: var(--color-principal);
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-    z-index: 101;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  color: var(--color-principal);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  z-index: 101;
 }
-.chatbot-toggle-btn:hover {
-    transform: scale(1.1);
-}
+.chatbot-toggle-btn:hover { transform: scale(1.1); }
 .chatbot-window {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 350px;
-    height: 450px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: var(--color-secundario);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    z-index: 100;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  height: 450px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-secundario);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 100;
 }
-.chatbot-window.hidden {
-    display: none;
-}
+.chatbot-window.hidden { display: none; }
 .chatbot-header {
-    background-color: var(--color-principal);
-    color: var(--color-texto);
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
+  background-color: var(--color-principal);
+  color: var(--color-texto);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
 }
 .chatbot-header button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
 #chat-messages {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 15px;
 }
 .message {
-    padding: 8px 12px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  max-width: 80%;
 }
 .user-message {
-    background-color: var(--color-acento);
-    color: var(--color-principal);
-    align-self: flex-end;
-    margin-left: auto;
+  background-color: var(--color-acento);
+  color: var(--color-principal);
+  align-self: flex-end;
+  margin-left: auto;
 }
 .bot-message {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--color-texto);
-    align-self: flex-start;
-    margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-texto);
+  align-self: flex-start;
+  margin-right: auto;
 }
 .chat-input-container {
-    display: flex;
-    padding: 10px;
-    background-color: var(--color-principal);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  padding: 10px;
+  background-color: var(--color-principal);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 #chat-input {
-    flex-grow: 1;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--color-secundario);
-    color: white;
-    margin-right: 10px;
+  flex-grow: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-secundario);
+  color: white;
+  margin-right: 10px;
 }
 #send-chat {
-    background-color: var(--color-acento);
-    color: var(--color-principal);
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  background-color: var(--color-acento);
+  color: var(--color-principal);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
