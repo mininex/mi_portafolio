@@ -13,12 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Fondo -->
-    <div id="particles-js"></div> <!-- Partículas -->
+    <!-- Fondo partículas -->
+    <div id="particles-js"></div>
     <div id="parallax-bg">
         <img id="bg-img-1" src="{{ url_for('static', filename='bg-img-1.jpg') }}" alt="Código de programación">
         <img id="bg-img-2" src="{{ url_for('static', filename='bg-img-2.jpg') }}" alt="Análisis de datos">
     </div>
+
     <!-- Encabezado -->
     <header>
         <div class="header-profile-pic">
@@ -33,65 +34,42 @@
             </ul>
         </nav>
     </header>
+
     <!-- Sección: Acerca de mí -->
     <section id="acerca-de" class="seccion-acerca-de">
         <div class="info-perfil">
             <h2>Mi nombre es Vanessa Ferrer</h2>
             <p class="presentacion-texto">
-                Soy <span class="keyword-1">Científico de Datos</span> y <span class="keyword-2">Desarrolladora</span> de AI <span class="keyword-3">con un enfoque</span> en la creación <span class="keyword-4"> de soluciones inteligentes</span>. 
+                Soy <span class="keyword-1">Científico de Datos</span> y <span class="keyword-2">Desarrolladora</span> de AI <span class="keyword-3">con un enfoque</span> en la creación <span class="keyword-4">de soluciones inteligentes</span>. 
                 Mi objetivo es transformar <span class="keyword-5">ideas en aplicaciones</span> robustas y <span class="keyword-6">eficientes</span>, combinando un diseño de front-end intuitivo con una lógica de back-end sólida, 
                 todo ello con un compromiso firme con la <span class="keyword-7">ciberseguridad</span>.
             </p>
         </div>
     </section>
+
     <!-- Sección: Habilidades -->
     <section id="habilidades" class="seccion-habilidades">
         <h2>Habilidades</h2>
         <div class="lista-habilidades">
-            <div class="habilidad-item">
-                <i class="fab fa-html5"></i>
-                <p>HTML5</p>
-            </div>
-            <div class="habilidad-item">
-                <i class="fab fa-css3-alt"></i>
-                <p>CSS3</p>
-            </div>
-            <div class="habilidad-item">
-                <i class="fab fa-js-square"></i>
-                <p>JavaScript</p>
-            </div>
-            <div class="habilidad-item">
-                <i class="fab fa-python"></i>
-                <p>Python</p>
-            </div>
-            <div class="habilidad-item">
-                <i class="fas fa-database"></i>
-                <p>Ciencia de Datos</p>
-            </div>
-            <div class="habilidad-item">
-                <i class="fas fa-robot"></i>
-                <p>Inteligencia Artificial</p>
-            </div>
+            <div class="habilidad-item"><i class="fab fa-html5"></i><p>HTML5</p></div>
+            <div class="habilidad-item"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
+            <div class="habilidad-item"><i class="fab fa-js-square"></i><p>JavaScript</p></div>
+            <div class="habilidad-item"><i class="fab fa-python"></i><p>Python</p></div>
+            <div class="habilidad-item"><i class="fas fa-database"></i><p>Ciencia de Datos</p></div>
+            <div class="habilidad-item"><i class="fas fa-robot"></i><p>Inteligencia Artificial</p></div>
         </div>
     </section>
+
     <!-- Sección: Recomendaciones -->
     <section id="recomendaciones" class="seccion-recomendaciones">
         <h2>Recomendaciones</h2>
         <div class="contenedor-recomendaciones">
-            <div class="recomendacion-item">
-                <p>"[Aquí va el texto de la recomendación 1.]"</p>
-                <p class="autor">- [Nombre del Autor 1]</p>
-            </div>
-            <div class="recomendacion-item">
-                <p>"[Aquí va el texto de la recomendación 2.]"</p>
-                <p class="autor">- [Nombre del Autor 2]</p>
-            </div>
-            <div class="recomendacion-item">
-                <p>"[Aquí va el texto de la recomendación 3.]"</p>
-                <p class="autor">- [Nombre del Autor 3]</p>
-            </div>
+            <div class="recomendacion-item"><p>"[Aquí va el texto de la recomendación 1.]"</p><p class="autor">- [Nombre del Autor 1]</p></div>
+            <div class="recomendacion-item"><p>"[Aquí va el texto de la recomendación 2.]"</p><p class="autor">- [Nombre del Autor 2]</p></div>
+            <div class="recomendacion-item"><p>"[Aquí va el texto de la recomendación 3.]"</p><p class="autor">- [Nombre del Autor 3]</p></div>
         </div>
     </section>
+
     <!-- Sección: Seguridad -->
     <section id="demo-seguridad" class="seccion-seguridad">
         <h2>Demostración de Seguridad</h2>
@@ -102,25 +80,23 @@
             <div id="resultado-demo" class="resultado-seguro"></div>
         </div>
     </section>
+
     <!-- Chatbot -->
-    <button id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-        <i class="fas fa-robot"></i>
-    </button>
+    <button id="chatbot-toggle-btn" class="chatbot-toggle-btn"><i class="fas fa-robot"></i></button>
     <div id="chatbot-window" class="chatbot-window hidden">
         <div class="chatbot-header">
             <span>Asistente de IA</span>
             <button id="chatbot-close-btn">&times;</button>
         </div>
         <div id="chat-messages">
-            <div class="message bot-message">
-                Hola, soy tu asistente de IA. ¿En qué puedo ayudarte hoy?
-            </div>
+            <div class="message bot-message">Hola, soy tu asistente de IA. ¿En qué puedo ayudarte hoy?</div>
         </div>
         <div class="chat-input-container">
             <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí...">
             <button id="send-chat"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
